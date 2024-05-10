@@ -29,6 +29,11 @@ jobs:
         cache: maven
     - name: Run tests
       run: cd TZ2 && mvn clean test
+    - name: Manual trigger
+      if: github.event_name != 'push'
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Run tests  
     - name: Send Telegram message on success
       if: ${{ always() }}
       uses: appleboy/telegram-action@master
