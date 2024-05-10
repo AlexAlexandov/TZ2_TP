@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-      run: mvn clean test
+      run: cd TZ2 && mvn clean test
     - name: Send Telegram message on success
       if: ${{ always() }}
       uses: appleboy/telegram-action@master
