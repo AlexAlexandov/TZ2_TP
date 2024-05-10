@@ -1,7 +1,7 @@
-## Скрипт на bash
-# Запуск скрипта
+## Программа Техническое задание 2
+# Запуск программы
 Перед запуском убедитесь, что вы находитесь в правильной директории.
 Выполните данную команду:
 ```bash
-./copy_dir.bash InputDir OutputDir
+mvn clean test -Dtest=org.example.NumberProcessorTest
 ```
