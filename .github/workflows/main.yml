@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ TZ2 ] 
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+       
+    - name: Run tests
+      run: mvn clean test -Dtest=org.example.NumberProcessorTest
+
+    - name: Manual trigger
+      if: github.event_name != 'push'
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Run tests  
+
